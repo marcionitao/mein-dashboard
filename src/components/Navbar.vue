@@ -1,26 +1,40 @@
 <template>
-    <div>
-      <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
-    </v-toolbar>
-    </div>
+    <nav>
+      <v-toolbar app flat>
+
+        <v-toolbar-side-icon class="grey--text" @click="drawer = !drawer"></v-toolbar-side-icon>
+
+        <v-toolbar-title class="text-uppercase grey--text">
+          <span class="font-weight-light">Mein</span>
+          <span>Dashboard</span>
+        </v-toolbar-title>
+
+        <v-spacer></v-spacer>
+
+        <v-btn flat color="grey">
+          <span>Sign Out</span>
+          <v-icon right>exit_to_app</v-icon>
+        </v-btn>
+        
+      </v-toolbar>
+
+      <v-navigation-drawer app v-model="drawer" class="indigo" temporary dark>
+        <p>Test</p>
+      </v-navigation-drawer>
+
+    </nav>
 </template>
 
 <script>
-    export default {
+  export default {
+    name: 'Navbar',
+    data() {
+      return {
+        drawer: false,
+      }
+    },
         
-    }
+  }
 </script>
 
 <style lang="scss" scoped>

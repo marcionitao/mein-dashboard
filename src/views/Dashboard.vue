@@ -6,15 +6,23 @@
 
       <!-- barra com opeções -->
       <v-layout row class="mb-3">
-        <v-btn small flat color="grey" @click="sortBy('title')">
-          <v-icon left small>folder</v-icon>
-          <span class="caption text-lowercase">By Project name</span>
-        </v-btn>
+        
+        <v-tooltip top>
+          <v-btn small flat color="grey" @click="sortBy('title')" slot="activator">
+            <v-icon left small>folder</v-icon>
+            <span class="caption text-lowercase">By Project name</span>
+          </v-btn>
+          <span>Sort projects by project name</span>
+        </v-tooltip>
 
-        <v-btn small flat color="grey" @click="sortBy('person')">
-          <v-icon left small>person</v-icon>
-          <span class="caption text-lowercase">By Person</span>
-        </v-btn>
+        <v-tooltip top>
+          <v-btn small flat color="grey" @click="sortBy('person')" slot="activator">
+            <v-icon left small>person</v-icon>
+            <span class="caption text-lowercase">By Person</span>
+          </v-btn>
+          <span>Sort projects by person</span>
+        </v-tooltip>
+        
       </v-layout>
 
       <v-card flat v-for="project in projects" :key="project.title">
@@ -65,6 +73,7 @@ export default {
   },
   methods: {
     sortBy(prop){
+      // https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
       this.projects.sort((a, b) => a[prop] < b[prop] ? -1 : 1)
     }
   }

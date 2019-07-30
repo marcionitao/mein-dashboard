@@ -4,9 +4,9 @@
 
         <v-toolbar-side-icon class="grey--text" @click="drawer = !drawer"></v-toolbar-side-icon>
 
-        <v-toolbar-title class="text-uppercase grey--text">
+        <v-toolbar-title class="text-uppercase">
           <span class="font-weight-light">Mein</span>
-          <span>Dashboard</span>
+          <span class="dashColor">Dashboard</span>
         </v-toolbar-title>
 
         <v-spacer></v-spacer>
@@ -66,6 +66,9 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style>
+  .dashColor {
+    color: #FF00FF;
+  }
 
 </style>

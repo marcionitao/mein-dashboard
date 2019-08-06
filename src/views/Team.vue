@@ -1,6 +1,8 @@
 <template>
   <div class="team">
-    <h1 class="subheading grey--text">This is an Team page</h1>
+     <div>
+      <v-breadcrumbs :items="items" divider=">"></v-breadcrumbs>
+    </div>
 
     <v-container class="my-5">
       
@@ -37,7 +39,11 @@
           { name: 'Juca', role: 'Designer', avatar: '/avatar-2.png'},
           { name: 'Ze', role: 'Sales', avatar: '/avatar-4.png'},
           { name: 'Maria', role: 'Manager', avatar: '/avatar-6.png'}
-        ]
+        ],
+        items: [
+          { text: 'Dashboard', disabled: false, href: 'breadcrumbs_dashboard' },
+          { text: 'Team', disabled: true, href: 'breadcrumbs_link_1'},     
+        ],
       }
     },
   }

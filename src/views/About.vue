@@ -1,6 +1,8 @@
 <template>
   <div class="about">
-    <h1 class="subheading grey--text">This is an about page</h1>
+     <div>
+      <v-breadcrumbs :items="items" divider=">"></v-breadcrumbs>
+    </div>
 
      <v-container class="my-5">
       
@@ -32,7 +34,10 @@
   export default {
     data() {
       return {
-        
+        items: [
+          { text: 'Dashboard', disabled: false, href: 'breadcrumbs_dashboard' },
+          { text: 'About', disabled: true, href: 'breadcrumbs_link_1' },     
+        ],
       }
     },
   }

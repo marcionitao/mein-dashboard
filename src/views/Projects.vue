@@ -1,22 +1,15 @@
 <template>
   <div class="projects">
-    <h1 class="subheading grey--text">This is an Projects page</h1>
 
     <v-container class="my-5">
 
-      <v-expansion-panel>
-        <v-expansion-panel-content v-for="project in myProjects" :key="project.title">
-          <div slot="header">{{ project.title }}</div>
-          <v-card>
-            <v-card-text class="px-4 grey--text">
-              <div class="font-weight-bold">due by {{ project.due }}</div>
-              <div>{{ project.content }}</div>
-            </v-card-text>
-          </v-card>
-        </v-expansion-panel-content>
-      </v-expansion-panel>
+      <v-btn small color="grey" outlined>
+        <v-icon left>folder</v-icon>
+          <span>Projects ></span>
+      </v-btn>
 
     </v-container>
+
   </div>
 </template>
 
@@ -43,4 +36,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+  .project.complete {
+    border-left: 4px solid #3cd1c2;
+  }
+  .project.ongoing {
+    border-left: 4px solid orange;
+  }
+  .project.overdue {
+    border-left: 4px solid tomato;
+  }
+  .vchip.complete {
+    background: #3cd1c2;
+  }
+  .vchip.ongoing {
+    background: orange;
+  }
+  .vchip.overdue {
+    background: tomato;
+  }
+  
 </style>

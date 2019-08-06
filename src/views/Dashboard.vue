@@ -5,54 +5,67 @@
     <v-container class="my-5">
 
       <!-- barra com opeções -->
-      <v-layout row class="mb-3">
+      <v-layout row class="mb-4">
         
         <v-tooltip top>
-          <v-btn small flat color="grey" @click="sortBy('title')" slot="activator">
-            <v-icon left small>folder</v-icon>
-            <span class="caption text-lowercase">By Project name</span>
-          </v-btn>
-          <span>Sort projects by project name</span>
+          <template v-slot:activator="{ on }">
+            <v-btn class="ma-1" small outlined color="grey" @click="sortBy('title')" v-on="on">
+              <v-icon left small>folder</v-icon>
+              <span class="caption text-lowercase">By Project name</span>
+            </v-btn>
+        </template>
+        <span>Sort projects by project name</span>
         </v-tooltip>
 
         <v-tooltip top>
-          <v-btn small flat color="grey" @click="sortBy('person')" slot="activator">
-            <v-icon left small>person</v-icon>
-            <span class="caption text-lowercase">By Person</span>
-          </v-btn>
-          <span>Sort projects by person</span>
+          <template v-slot:activator="{ on }">
+            <v-btn class="ma-1" small outlined  color="grey" @click="sortBy('person')" v-on="on">
+              <v-icon left small>person</v-icon>
+              <span class="caption text-lowercase">By Person</span>
+            </v-btn>      
+          </template>
+         <span>Sort projects by person</span>
         </v-tooltip>
         
       </v-layout>
 
-      <v-card flat v-for="project in projects" :key="project.title">
-        <!-- definir uma classe chamada project que irá alterar as propriedades do Status -->
-        <v-layout row wrap :class="`pa-3 project ${project.status}`">
+      <v-layout justify-center class="mt-4">
+        <v-expansion-panels accordion>
+          <v-expansion-panel v-for="project in projects" :key="project.title">
+            
+            <v-layout row wrap :class="`pa-3 project ${project.status}`">
+              <v-expansion-panel-header>
 
-          <v-flex xs12 md6>
-            <div class="caption grey--text">Project Title</div>
-            <div>{{ project.title }}</div>
-          </v-flex>
+                <v-flex xs12 md6>
+                  <div class="caption grey--text">Project Title</div>
+                  <div>{{ project.title }}</div>
+                </v-flex>
 
-          <v-flex xs6 sm4 md2>
-            <div class="caption grey--text">Person</div>
-            <div>{{ project.person }}</div>
-          </v-flex>
+                <v-flex xs6 sm4 md2>
+                  <div class="caption grey--text">Person</div>
+                  <div>{{ project.person }}</div>
+                </v-flex>
 
-          <v-flex xs6 sm4 md2>
-            <div class="caption grey--text">Due by</div>
-            <div>{{ project.due }}</div>
-          </v-flex>
+                <v-flex xs6 sm4 md2>
+                  <div class="caption grey--text">Due by</div>
+                  <div>{{ project.due }}</div>
+                </v-flex>
 
-          <v-flex xs2 sm4 md2>
-           <div class="right">
-             <v-chip small :class="` vchip ${project.status} white--text caption my-2`">{{ project.status }}</v-chip>
-           </div>
-          </v-flex>
+                <v-flex xs2 sm4 md2>
+                  <div class="right">
+                    <v-chip small :class="`vchip ${project.status} white--text caption my-2`">{{ project.status }}</v-chip>
+                  </div>
+                </v-flex>
+              </v-expansion-panel-header>
 
-        </v-layout>
-        <v-divider></v-divider>
-      </v-card>
+              <v-expansion-panel-content>
+                {{ project.content }}
+              </v-expansion-panel-content>
+            </v-layout>
+
+          </v-expansion-panel>
+        </v-expansion-panels>
+      </v-layout>
 
     </v-container>
   </div>
@@ -81,7 +94,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+
   .project.complete {
     border-left: 4px solid #3cd1c2;
   }

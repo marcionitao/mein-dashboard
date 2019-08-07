@@ -1,11 +1,11 @@
 <template>
   <div class="dashboard">
 
-      <div>
-       <v-breadcrumbs :items="items" divider=">">
-        
-       </v-breadcrumbs>
-      </div>
+    <div>
+      <v-breadcrumbs :items="items" divider=">"></v-breadcrumbs>
+    </div>
+
+    <v-divider></v-divider>
 
     <v-container class="my-5">
 
@@ -24,12 +24,12 @@
 
         <v-tooltip top>
           <template v-slot:activator="{ on }">
-            <v-btn class="ma-1" small outlined  color="grey" @click="sortBy('person')" v-on="on">
-              <v-icon left small>person</v-icon>
-              <span class="caption text-lowercase">By Person</span>
+            <v-btn class="ma-1" small outlined  color="grey" @click="sortBy('tech')" v-on="on">
+              <v-icon left small>mouse</v-icon>
+              <span class="caption text-lowercase">By Tech</span>
             </v-btn>      
           </template>
-         <span>Sort projects by person</span>
+         <span>Sort projects by tech</span>
         </v-tooltip>
         
       </v-layout>
@@ -38,7 +38,7 @@
         <v-expansion-panels accordion>
           <v-expansion-panel v-for="project in projects" :key="project.title">
             
-            <v-layout row wrap :class="`pa-3 project ${project.status}`">
+            <v-layout row wrap :class="`pa-3 project ${project.tech}`">
               <v-expansion-panel-header>
 
                 <v-flex xs12 md6>
@@ -47,24 +47,27 @@
                 </v-flex>
 
                 <v-flex xs6 sm4 md2>
-                  <div class="caption grey--text">Person</div>
-                  <div>{{ project.person }}</div>
+                  <div class="caption grey--text">Device</div>
+                  <div>{{ project.device }}</div>
                 </v-flex>
 
                 <v-flex xs6 sm4 md2>
-                  <div class="caption grey--text">Due by</div>
-                  <div>{{ project.due }}</div>
+                  <div class="caption grey--text">Author</div>
+                  <div>{{ project.author }}</div>
                 </v-flex>
 
                 <v-flex xs2 sm4 md2>
                   <div class="right">
-                    <v-chip small :class="`vchip ${project.status} white--text caption my-2`">{{ project.status }}</v-chip>
+                    <v-chip small :class="`vchip ${project.tech} white--text caption my-2`">{{ project.tech }}</v-chip>
                   </div>
                 </v-flex>
               </v-expansion-panel-header>
 
               <v-expansion-panel-content>
-                {{ project.content }}
+                <p class="font-weight-medium">{{ project.description }}</p>
+                
+                <v-divider></v-divider>
+                More details <a :href='project.url'>Here ></a>
               </v-expansion-panel-content>
             </v-layout>
 
@@ -82,13 +85,13 @@ export default {
   data() {
     return {
       projects: [
-        { title: 'Design a new Website', person: 'Marcio', due: '1st Jan 2019', status: 'ongoing', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea inventore deserunt incidunt sint deleniti, nobis dignissimos porro quas laborum fugiat similique placeat quia fuga animi, nihil delectus asperiores molestiae sunt.'},
-        { title: 'Create new banner', person: 'Juca', due: '10th Jan 2019', status: 'complete', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea inventore deserunt incidunt sint deleniti, nobis dignissimos porro quas laborum fugiat similique placeat quia fuga animi, nihil delectus asperiores molestiae sunt.'},
-        { title: 'Send emails', person: 'Ze', due: '20th Dez 2018', status: 'complete', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea inventore deserunt incidunt sint deleniti, nobis dignissimos porro quas laborum fugiat similique placeat quia fuga animi, nihil delectus asperiores molestiae sunt.'},
-        { title: 'Create Community Forum', person: 'Maria', due: '20th Out 2018', status: 'overdue', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea inventore deserunt incidunt sint deleniti, nobis dignissimos porro quas laborum fugiat similique placeat quia fuga animi, nihil delectus asperiores molestiae sunt.'}
+        { title: 'Gutwetter', author: 'Marcio', description: 'Gutwetter is Vue app that uses public API from Weatherbit and just gets the weather based on a city: temperature and description.', device: 'Web', tech: 'vue', url: 'https://github.com/marcionitao/gutwetter/blob/master/README.md'},
+        { title: 'CryptoMünze', author: 'Marcio', description: 'CryptoMünze is a real-time dashboard that displays the top 10 cryptocurrencies based on currency price, market capitalization and overall circulating supply - obtained from the leading cryptocurrency resource CoinMarketCap.', device: 'Web', tech: 'angular', url: 'https://marcionitao.github.io/munze/home'},
+        
       ],
       items: [
-        { text: 'Dashboard', disabled: true, href: 'breadcrumbs_dashboard' }
+        { text: 'Home', disabled: false, href: 'breadcrumbs_link_1' },   
+        { text: 'Dashboard', disabled: true, href: 'breadcrumbs_dashboard' },
       ]
     }
   },
@@ -104,23 +107,42 @@ export default {
 
 <style lang="scss" scoped>
 
-  .project.complete {
+  .project.angular {
     border-left: 4px solid #3cd1c2;
   }
-  .project.ongoing {
+  .project.vue {
     border-left: 4px solid orange;
   }
-  .project.overdue {
+  .project.ionic {
     border-left: 4px solid tomato;
   }
-  .vchip.complete {
+  .project.flutter {
+    border-left: 4px solid green;
+  }
+  .project.c {
+    border-left: 4px solid yellow;
+  }
+ .project.java {
+    border-left: 4px solid gray;
+  }
+
+  .vchip.angular {
     background: #3cd1c2;
   }
-  .vchip.ongoing {
+  .vchip.vue {
     background: orange;
   }
-  .vchip.overdue {
+  .vchip.ionic {
     background: tomato;
+  }
+  .vchip.flutter {
+    background: green;
+  }
+  .vchip.c {
+    background: yellow;
+  }
+  .vchip.java {
+    background: gray;
   }
   
 </style>

@@ -1,8 +1,10 @@
 <template>
   <div class="about">
-     <div>
+    <div>
       <v-breadcrumbs :items="items" divider=">"></v-breadcrumbs>
     </div>
+
+     <v-divider></v-divider>
 
      <v-container class="my-5">
       
@@ -35,7 +37,7 @@
     data() {
       return {
         items: [
-          { text: 'Dashboard', disabled: false, href: 'breadcrumbs_dashboard' },
+          { text: 'Home', disabled: false, href: 'breadcrumbs_dashboard' },
           { text: 'About', disabled: true, href: 'breadcrumbs_link_1' },     
         ],
       }

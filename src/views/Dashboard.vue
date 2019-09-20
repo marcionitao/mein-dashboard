@@ -67,7 +67,7 @@
                 <p class="font-weight-medium">{{ project.description }}</p>
                 
                 <v-divider></v-divider>
-                More details <a :href='project.url'>Here ></a>
+                More details <a :href='project.url' target="_blank">Here ></a>
               </v-expansion-panel-content>
             </v-layout>
 

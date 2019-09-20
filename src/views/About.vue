@@ -8,24 +8,39 @@
 
      <v-container class="my-5">
       
-      <v-card class="mx-auto" max-width="800" outlined>
+      <v-card class="mx-auto" max-width="550" outlined>
         <v-list-item three-line>
 
           <v-list-item-content>
-            <div class="overline mb-4">MEINDASHBAORD</div>
+            <div class="overline mb-4">About me</div>
             <v-list-item-title class="headline mb-1">Welcome to my Portfolio</v-list-item-title>
-            <v-list-item-subtitle>Greyhound divisely hello coldly fonwderfully</v-list-item-subtitle>
-            <v-list-item-content>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod amet optio velit veritatis doloremque asperiores debitis alias, molestias iste, impedit recusandae aliquid rem distinctio voluptate exercitationem natus doloribus aut quos.</v-list-item-content>
+            <v-list-item-subtitle>Java / Node / Angular / Vue / Wordpress</v-list-item-subtitle>
+            <v-list-item-content>Hi, my name is Marcio. I am a developer expert in web application development. Till date, I have been providing services as a Freelancer for businesses and individuals related to tourism, finance and marketing.</v-list-item-content>
+            <v-list-item-content>My aim has always been to develop applications that look beautiful and professional, are highly functional, load quickly, and are Search Engine optimized.</v-list-item-content>
           </v-list-item-content>
 
-          <v-list-item-avatar tile size="100" color="grey"></v-list-item-avatar>
+          <v-list-item-avatar tile size="95" color="white">
+             <v-img src="../../public/chef_3.jpg"></v-img>
+          </v-list-item-avatar>
           
         </v-list-item>
 
-        <v-card-actions>
-          <v-btn text>Button</v-btn>
-          <v-btn text>Button</v-btn>
-        </v-card-actions>
+        <v-card-actions class="justify-center maisEspaco">
+			
+				<v-btn icon pa-1 href="https://twitter.com/marcionitao" target="_blank">
+					<v-img src="../../public/iconfinder_24-twitter_tweet_4202000.png" max-width="40px"></v-img>
+				</v-btn>
+
+				<v-btn icon pa-1 href="https://www.linkedin.com/in/marcionitao" target="_blank">
+					<v-img src="../../public/iconfinder_56-linkedin_4202085.png" max-width="40px"></v-img>
+				</v-btn>
+
+				<v-btn icon pa-1 href="https://github.com/marcionitao" target="_blank">
+					<v-img src="../../public/iconfinder_71-github_4202098.png" max-width="40px"></v-img>
+				</v-btn>
+			
+      </v-card-actions>
+
       </v-card>
       
     </v-container>

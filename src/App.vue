@@ -1,28 +1,28 @@
 <template>
-  <v-app class="grey lighten-4">
+  <v-app class="grey lighten-5">
 
     <Navbar/>
     
-    <v-content class="mx-4 mb-4">
+    <v-content class="maisEspaco">
 
       <router-view/>
       
     </v-content>
 
-    <Footer/>
+    <!-- <Footer/> -->
 
   </v-app>
 </template>
 
 <script>
 import Navbar from './components/Navbar'
-import Footer from './components/Footer'
+// import Footer from './components/Footer'
 
 export default {
   name: 'App',
   components: {
     Navbar,
-    Footer
+    // Footer
   },
   data () {
     return {
@@ -32,3 +32,12 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+
+.maisEspaco {
+	padding-left: 55px !important
+}
+	
+
+</style>

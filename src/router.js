@@ -32,9 +32,9 @@ export default new Router({
       component: () => import('./views/Projects.vue')
     },
     {
-      path: '/team',
-      name: 'team',
-      component: () => import('./views/Team.vue')
+      path: '/skills',
+      name: 'skills',
+      component: () => import('./views/Skills.vue')
     }
   ]
 })

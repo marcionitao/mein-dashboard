@@ -52,6 +52,7 @@
         links: [
           { icon: 'home', text: 'Home', route: '/'},
           { icon: 'folder', text: 'Dashboard', route: '/dashboard'},
+          { icon: 'list', text: 'Skills', route: '/skills'},
           { icon: 'person', text: 'About', route: '/about'},
         ]
       }

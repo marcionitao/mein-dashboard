@@ -1,5 +1,5 @@
 <template>
-  <div class="dashboard">
+  <div class="myprojects">
 
     <div>
       <v-breadcrumbs :items="items" divider=">"></v-breadcrumbs>
@@ -91,7 +91,7 @@ export default {
       ],
       items: [
         { text: 'Home', disabled: false, href: 'breadcrumbs_link_1' },   
-        { text: 'Dashboard', disabled: true, href: 'breadcrumbs_dashboard' },
+        { text: 'My Projects', disabled: true, href: 'breadcrumbs_dashboard' },
       ]
     }
   },

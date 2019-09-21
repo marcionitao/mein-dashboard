@@ -24,7 +24,8 @@
 
                 <v-spacer></v-spacer>
 
-                <v-btn color="success mx-0 mt-3" @click="submit">Add project</v-btn>
+                <v-btn color="success mx-0 mt-3" @click="submit">Send</v-btn>
+                <v-btn @click="clear">clear</v-btn>
             </v-form>
         </v-card-text>
 
@@ -50,11 +51,11 @@
     },
     methods: {
       submit() {
-       if (this.$ref.form.validade()) {
+       if (this.$refs.form.validate()) {
          // eslint-disable-next-line no-console
         console.log(this.title, this.content)
        }
-      }
+      },
     },
     computed: {
       // eslint-disable-next-line vue/return-in-computed-property

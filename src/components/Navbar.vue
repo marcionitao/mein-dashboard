@@ -51,9 +51,10 @@
         mini: true,
         links: [
           { icon: 'home', text: 'Home', route: '/'},
-          { icon: 'folder', text: 'Dashboard', route: '/dashboard'},
+          { icon: 'folder', text: 'My Projects', route: '/myprojects'},
           { icon: 'list', text: 'Skills', route: '/skills'},
           { icon: 'person', text: 'About', route: '/about'},
+          { icon: 'email', text: 'Contact', route: '/contact'},
         ]
       }
     },

@@ -38,6 +38,10 @@
 				<v-btn icon pa-1 href="https://github.com/marcionitao" target="_blank">
 					<v-img src="../../public/iconfinder_71-github_4202098.png" max-width="40px"></v-img>
 				</v-btn>
+
+        <v-btn icon pa-1 router to='/contact'>
+					<v-img src="../../public/email.png" max-width="40px"></v-img>
+				</v-btn>
 			
       </v-card-actions>
 

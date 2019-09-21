@@ -7,18 +7,19 @@
     <v-divider></v-divider>
 
     <v-container class="my-5">
-      
+      <p>My favorite work technologies</p>
       <v-layout row wrap>
-        <v-flex xs12 sm6 md2 lg2 v-for="person in team" :key="person.name">
+        
+        <v-flex xs12 sm6 md2 lg2 v-for="skill in skills" :key="skill.name">
           
           <v-card class="text-xs-center ma-3">
 
             <v-card-actions class="justify-center">
-              <v-img max-width="100px" :src="person.avatar"></v-img>
+              <v-img max-width="50px" :src="skill.avatar"></v-img>
             </v-card-actions>
 
-            <v-card-title class="justify-center">{{ person.name }}</v-card-title>
-            <v-card-text class="text-center">{{ person.role }}</v-card-text>
+            <v-card-title class="justify-center">{{ skill.name }}</v-card-title>
+            <v-card-text class="text-center">{{ skill.role }}</v-card-text>
 
           </v-card>
         
@@ -33,7 +34,7 @@
   export default {
     data() {
       return {
-        team: [
+        skills: [
           { name: 'Java', role: 'web', avatar: '/java.png'},
           { name: 'Angular', role: 'web', avatar: '/angular.png'},
           { name: 'Node', role: 'web', avatar: '/node.png'},

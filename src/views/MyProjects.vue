@@ -31,6 +31,16 @@
           </template>
          <span>Sort projects by tech</span>
         </v-tooltip>
+
+        <v-tooltip top>
+          <template v-slot:activator="{ on }">
+            <v-btn class="ma-1" small outlined  color="grey" @click="sortBy('device')" v-on="on">
+              <v-icon left small>widgets</v-icon>
+              <span class="caption text-lowercase">By Device</span>
+            </v-btn>      
+          </template>
+         <span>Sort projects by device</span>
+        </v-tooltip>
         
       </v-layout>
 
@@ -80,15 +90,13 @@
 </template>
 
 <script>
+import db from '@/fb';
 
 export default {
+
   data() {
     return {
-      projects: [
-        { title: 'Gutwetter', author: 'Marcio', description: 'Gutwetter is Vue app that uses public API from Weatherbit and just gets the weather based on a city: temperature and description.', device: 'Web', tech: 'vue', url: 'https://github.com/marcionitao/gutwetter/blob/master/README.md'},
-        { title: 'CryptoMünze', author: 'Marcio', description: 'CryptoMünze is a real-time dashboard that displays the top 10 cryptocurrencies based on currency price, market capitalization and overall circulating supply - obtained from the leading cryptocurrency resource CoinMarketCap.', device: 'Web', tech: 'angular', url: 'https://marcionitao.github.io/munze/home'},
-        
-      ],
+      projects: [],
       items: [
         { text: 'Home', disabled: false, href: 'breadcrumbs_link_1' },   
         { text: 'My Projects', disabled: true, href: 'breadcrumbs_dashboard' },
@@ -100,7 +108,22 @@ export default {
       // https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
       this.projects.sort((a, b) => a[prop] < b[prop] ? -1 : 1)
     }
-  }
+  },
+  // Ao criar tudo, ele faz a qyery para a db list
+  created() {
+    db.collection('projects').onSnapshot(response => {
+      const changes = response.docChanges();
+
+      changes.forEach(change => {
+        if (change.type === 'added') {
+          this.projects.push({
+            ...change.doc.data(),
+            id: change.doc.id
+          })
+        }
+      });
+    })
+  },
 
 }
 </script>

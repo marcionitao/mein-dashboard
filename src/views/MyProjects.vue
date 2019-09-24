@@ -142,10 +142,10 @@ export default {
   .project.flutter {
     border-left: 4px solid green;
   }
-  .project.c {
-    border-left: 4px solid yellow;
+  .project.c-sharp {
+    border-left: 4px solid blue;
   }
- .project.java {
+  .project.java {
     border-left: 4px solid gray;
   }
 
@@ -161,8 +161,8 @@ export default {
   .vchip.flutter {
     background: green;
   }
-  .vchip.c {
-    background: yellow;
+  .vchip.c-sharp {
+    background: blue;
   }
   .vchip.java {
     background: gray;

@@ -14,9 +14,10 @@
           <v-list-item-content>
             <div class="overline mb-4">About me</div>
             <v-list-item-title class="headline mb-1">Welcome to my Portfolio</v-list-item-title>
-            <v-list-item-subtitle>Java / Node / Angular / Vue / Wordpress</v-list-item-subtitle>
-            <v-list-item-content>Hi, my name is Marcio. I am a developer expert in web application development. Till date, I have been providing services as a Freelancer for businesses and individuals related to tourism, finance and marketing.</v-list-item-content>
+            <v-list-item-subtitle>📍 Hamburg - Germany</v-list-item-subtitle>
+            <v-list-item-content>Hi, my name is Marcio and I am Portuguese. I am a developer expert in web application development. Till date, I have been providing services as a Freelancer for businesses and individuals related to tourism, finance and marketing.</v-list-item-content>
             <v-list-item-content>My aim has always been to develop applications that look beautiful and professional, are highly functional, load quickly, and are Search Engine optimized.</v-list-item-content>
+            <v-list-item-subtitle>Java / Node / Angular / Vue / Wordpress</v-list-item-subtitle>
           </v-list-item-content>
 
           <v-list-item-avatar tile size="95" color="white">

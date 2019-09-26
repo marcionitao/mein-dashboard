@@ -37,14 +37,10 @@
 </template>
 
 <script>
-  import Popup from './Popup';
 
   export default {
     name: 'Navbar',
-    components: {
-      // eslint-disable-next-line vue/no-unused-components
-      Popup
-    },
+   
     data() {
       return {
         drawer: false,

@@ -46,7 +46,7 @@
         drawer: false,
         mini: true,
         links: [
-          { icon: 'home', text: 'Home', route: '/'},
+          { icon: 'home', text: 'Home', route: '/home'},
           { icon: 'folder', text: 'My Projects', route: '/myprojects'},
           { icon: 'list', text: 'Skills', route: '/skills'},
           { icon: 'person', text: 'About', route: '/about'},

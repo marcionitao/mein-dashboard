@@ -46,7 +46,7 @@
 
       <v-layout justify-center class="mt-4">
         <v-expansion-panels accordion>
-          <v-expansion-panel v-for="project in projects" :key="project.title">
+          <v-expansion-panel v-for="project in this.$store.getters.getProjects" :key="project.title">
             
             <v-layout row wrap :class="`pa-3 project ${project.tech}`">
               <v-expansion-panel-header>
@@ -90,19 +90,19 @@
 </template>
 
 <script>
-import db from '@/fb';
 
 export default {
 
   data() {
     return {
-      projects: [],
+     // projects: [],
       items: [
         { text: 'Home', disabled: false, href: 'breadcrumbs_link_1' },   
         { text: 'My Projects', disabled: true, href: 'breadcrumbs_dashboard' },
       ]
     }
   },
+
   methods: {
     sortBy(prop){
       // https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
@@ -111,18 +111,7 @@ export default {
   },
   // Ao criar tudo, ele faz a qyery para a db list
   created() {
-    db.collection('projects').onSnapshot(response => {
-      const changes = response.docChanges();
-
-      changes.forEach(change => {
-        if (change.type === 'added') {
-          this.projects.push({
-            ...change.doc.data(),
-            id: change.doc.id
-          })
-        }
-      });
-    })
+     this.$store.dispatch('getProjects')
   },
 
 }
